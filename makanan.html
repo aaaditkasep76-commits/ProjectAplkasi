@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Pemesanan Makanan</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header><h1>Pemesanan Makanan</h1><nav><a href="data.html">Data</a><a href="makanan.html" class="active">Makanan</a><a href="kamar.html">Kamar</a><a href="admin.html"></a></nav></header>
+
+  <div class="container">
+    <section class="menu-section">
+      <h2>Menu Makanan</h2>
+      <div id="menuMakanan" class="menu-grid"></div>
+    </section>
+
+    <section class="summary">
+      <h3>Ringkasan Keranjang</h3>
+      <div id="rincianMakanan"></div>
+      <p id="totalMakanan">Total: Rp 0</p>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <button id="kirimPesanan" class="btn">Kirim Pesanan ke Admin</button>
+        <button id="clearCartFood" class="btn secondary">Kosongkan Keranjang</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- popup (shared) -->
+  <div id="popup" class="popup" aria-hidden="true">
+    <div class="popup-card">
+      <img id="popupImg" src="" alt="">
+      <h3 id="popupName"></h3>
+      <div id="popupPrice" class="muted"></div>
+      <div style="margin-top:8px" class="popup-row">
+        <label>Jumlah:</label>
+        <input id="popupQty" type="number" min="1" value="1">
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px">
+        <button id="popup_add" class="btn">Tambah ke Keranjang</button>
+        <button id="popup_cancel" class="btn secondary">Batal</button>
+      </div>
+      <button id="popup_close" style="position:absolute;right:12px;top:8px;border:none;background:transparent;font-size:20px">×</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // page-specific binds
+    document.getElementById('clearCartFood').onclick = ()=>{ if(confirm('Kosongkan keranjang?')) clearCart(); };
+    document.getElementById('kirimPesanan').onclick = ()=> checkoutSaveOrder();
+  </script>
+</body>
+</html>

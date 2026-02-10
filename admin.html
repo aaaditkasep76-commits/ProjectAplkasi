@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin - Rincian Pesanan</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header><h1>Panel Admin</h1><nav><a href="data.html">Data</a><a href="makanan.html">Makanan</a><a href="kamar.html">Kamar</a><a href="admin.html" class="active">Admin</a></nav></header>
+
+  <div class="container">
+    <section class="form-card">
+      <h2>Daftar Pesanan</h2>
+      <div id="ordersRoot"></div>
+
+      <div style="display:flex;gap:8px;margin-top:12px">
+        <button id="print-all" class="btn">Cetak Semua Pesanan (PDF)</button>
+        <button id="clear-all" class="btn secondary">Hapus Semua Pesanan</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // on admin page loaded; renderOrders called in app.js init
+    document.getElementById('print-all').onclick = ()=> printAllOrdersPDF();
+    document.getElementById('clear-all').onclick = ()=> {
+      if(!confirm('Hapus semua pesanan?')) return;
+      localStorage.removeItem('app_orders_v1');
+      renderAdminOrders();
+    };
+  </script>
+</body>
+</html>

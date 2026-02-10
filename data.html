@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Data Pelanggan</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header><h1>Isi Data Pelanggan</h1><nav><a href="data.html" class="active">Data</a><a href="makanan.html">Makanan</a><a href="kamar.html">Kamar</a><a href="admin.html"></a></nav></header>
+
+  <div class="container">
+    <div class="form-card" id="cust_form">
+      <div class="form-row">
+        <label>Nama Pelanggan (wajib)</label>
+        <input type="text" id="cust_name" placeholder="Masukkan nama lengkap"/>
+      </div>
+      <div class="form-row">
+        <label>Nomor HP (wajib)</label>
+        <input type="tel" id="cust_phone" placeholder="08xxxxxxxxxx"/>
+      </div>
+      <div class="form-row">
+        <label>Catatan Tambahan (opsional)</label>
+        <textarea id="cust_note" rows="4" placeholder="Contoh: minta tanpa sambal / jam check-in ..."></textarea>
+      </div>
+      <div style="display:flex;gap:8px">
+        <button class="btn" id="save_customer">Simpan & Lanjut</button>
+        <a class="btn secondary" href="makanan.html">Lewati & Buka Makanan</a>
+      </div>
+    </div>
+  </div>
+
+  <footer style="text-align:center;padding:12px">© 2025 Pemesanan Nusantara</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
